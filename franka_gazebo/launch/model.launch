@@ -1,0 +1,27 @@
+<launch>
+  <!-- We resume the logic in empty_world.launch, changing only the name of the world to be launched -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find franka_gazebo)/worlds/franka_pokusaj.world"/>
+    <!-- more default parameters can be changed here -->
+  </include>
+  <param name="robot_description" command="$(find xacro)/xacro --inorder $(find franka_gazebo)/robots/panda_arm_hand.urdf.xacro"/>
+  
+  <rosparam command="load" file="$(find franka_gazebo)/config/default.yaml"/>
+  <rosparam command="load" file="$(find franka_gazebo)/config/controllers.yaml" ns="franka"/>
+  
+  <node name="franka_controller_spawner" pkg="controller_manager" type="spawner" args=
+		"franka/joint1_position_controller
+		franka/joint2_position_controller
+		franka/joint3_position_controller
+		franka/joint4_position_controller
+		franka/joint5_position_controller
+		franka/joint6_position_controller
+		franka/joint7_position_controller
+		franka/hand_controller "/>
+  
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="rob_st_pub"/>
+
+  <node pkg="franka_gazebo" type="pokusaj_upravljanja.py" name="upravljanje_polozajem"/>
+ <!-- <node pkg="franka_gazebo" type="gibanje_primjer.py" name="zadano_gibanje_robota"/> -->
+
+</launch>
