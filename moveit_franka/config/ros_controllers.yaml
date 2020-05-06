@@ -1,0 +1,43 @@
+controller_list:
+  - name: franka
+    action_ns: joint1_position_controller
+    type: SingleJointPosition
+    default: true
+    joints:
+      - panda_joint1
+  - name: franka
+    action_ns: joint2_position_controller
+    type: SingleJointPosition
+    default: true
+    joints:
+      - panda_joint2
+  - name: franka
+    action_ns: joint3_position_controller
+    type: SingleJointPosition
+    default: true
+    joints:
+      - panda_joint3
+  - name: franka
+    action_ns: joint4_position_controller
+    type: SingleJointPosition
+    default: true
+    joints:
+      - panda_joint4
+  - name: franka
+    action_ns: joint5_position_controller
+    type: SingleJointPosition
+    default: true
+    joints:
+      - panda_joint5
+  - name: franka
+    action_ns: joint6_position_controller
+    type: SingleJointPosition
+    default: true
+    joints:
+      - panda_joint6
+  - name: franka
+    action_ns: joint7_position_controller
+    type: SingleJointPosition
+    default: true
+    joints:
+      - panda_joint7
