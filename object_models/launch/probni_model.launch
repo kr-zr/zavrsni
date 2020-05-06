@@ -1,0 +1,4 @@
+<launch>
+    
+    <node name="spawn" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -sdf -model cup"/>
+</launch>
