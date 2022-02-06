@@ -2,7 +2,7 @@
 This repository contains all the code used for making the Final BSc Project for the Bachelor programme at the Faculty of Electrical Engineering and Computing at the University of Zagreb.
 The main code is located in /franka_gazebo/scripts in the franka_final.py file. The script allows Franka Emika robot to move through its workspace, collect information about the object in front of it by making contact with it, use the information to edit a jpg image that a previously trained machine learning model can use to guess which part of the plant is in front of the robot - a flat part, fruit or branching.
 The code in franka_final.py contains multiple comments which explain what each part of the code does.
-This project uses ROS in combination with Gazebo. minfo about ROS can be found [here](https://www.ros.org/) and about Gazebo [here](http://gazebosim.org/).
+This project uses ROS in combination with Gazebo. More info about ROS can be found [here](https://www.ros.org/) and about Gazebo [here](http://gazebosim.org/).
 For controlling the movement of the Franka Emika robot, MoveIt! ROS package is used. More info on the pacakge can be found [here](https://moveit.ros.org/).
 To test the main part of the project follow these steps:
 1. Build the packages int an existing catkin workspace. More information on creating a catkin workspace available [here](http://wiki.ros.org/catkin/Tutorials/create_a_workspace).
@@ -15,4 +15,4 @@ After all of this changes to the files are made, everything should be able to ru
 4. Open another terminal and run _roslaunch moveit_franka demo.launch_
 5. Open another terminal and run _roslaunch franka_gazebo model.launch_
 6. Open another terminal and run _rosrun franka_gazebo franka_final.py_
-Franka will begin moving through its workspace and try to make contact with the object. The
+Franka will begin moving through its workspace and try to make contact with the object. This part of the program runs for quite long, as it is set that Franka needs to make at least 200 contacts with the object before it can make a guess about what the object is. After Franka makes enough contacts with the object, a machine learning model will use the picture, which now has white pixels where contacts with the object were made, to guess which part of the stem the object coresponds to. 
